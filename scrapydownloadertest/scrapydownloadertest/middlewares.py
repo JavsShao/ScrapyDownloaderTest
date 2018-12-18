@@ -115,3 +115,7 @@ class RandomUserAgentMiddleware():
 
     def process_request(self, request, spider):
         request.headers['User-Agent'] = random.choice(self.user_agents)
+
+    def process_response(self, request, response, spider):
+        response.status = 201
+        return response
